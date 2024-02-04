@@ -1,6 +1,6 @@
 {
   "name": "playwright-crx",
-  "version":"0.4.0-next",
+  "version": "0.4.0-next",
   "engines": {
     "node": ">=16"
   },
@@ -20,8 +20,9 @@
     "generate:pw": "cd ./playwright && node ./utils/generate_injected.js",
     "build:examples:todomvc": "npm run build --prefix ./examples/todomvc-crx",
     "build:examples:recorder": "npm run build --prefix ./examples/recorder-crx",
-    "build:examples": "npm run build:examples:todomvc && npm run build:examples:recorder",
-    "clean:examples": "rimraf ./examples/recorder-crx/dist && rimraf ./examples/todomvc-crx/dist",
+    "build:examples:pwbot": "npm run build --prefix ./examples/pwbot-crx",
+    "build:examples": "npm run build:examples:todomvc && npm run build:examples:recorder && npm run build:examples:pwbot",
+    "clean:examples": "rimraf ./examples/recorder-crx/dist && rimraf ./examples/todomvc-crx/dist && rimraf ./examples/pwbot-crx/dist",
     "build:tests": "npm run build --prefix ./tests",
     "clean:tests": "rimraf ./tests/playwright-report && rimraf ./tests/test-results",
     "generate:crx": "node ./utils/generate_test_types.js",
@@ -36,6 +37,7 @@
   "workspaces": [
     "examples/recorder-crx",
     "examples/todomvc-crx",
+    "examples/pwbot-crx",
     "tests"
   ],
   "exports": {
@@ -79,7 +81,7 @@
     "zip-bundle": "file:./playwright/packages/playwright-core/bundles/zip"
   },
   "devDependencies": {
-    "@types/chrome": "^0.0.246",
+    "@types/chrome": "^0.0.260",
     "@types/debug": "^4.1.10",
     "@vitejs/plugin-react": "^4.1.0",
     "react": "^18.2.0",
